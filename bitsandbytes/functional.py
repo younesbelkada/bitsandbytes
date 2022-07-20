@@ -1082,6 +1082,8 @@ def get_colrow_absmax(A, row_stats=None, col_stats=None, nnz_block_ptr=None, thr
     rows = ct.c_int32(rows)
     cols = ct.c_int32(cols)
 
+    print(A.device, A.dtype)
+
     lib.cget_col_row_stats(ptrA, ptrRowStats, ptrColStats, ptrNnzrows, ct.c_float(threshold), rows, cols)
 
     if threshold > 0.0:
